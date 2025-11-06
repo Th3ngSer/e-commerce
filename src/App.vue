@@ -11,6 +11,7 @@ import PromoCard from './component/PromoCard.vue'
 import Vegetable from './assets/img/vegetable.png'
 import Milk from './assets/img/milk.png'
 import Onion from './assets/img/onion.png'
+import ProductCard from './component/ProductCard.vue'
 
 
 const foods = [
@@ -51,7 +52,7 @@ const foods = [
   },
 ]
 
-const  promos = [
+const promos = [
   {
     title: 'Fresh Fruits & Clean Vegetables',
     image: Onion,
@@ -72,43 +73,196 @@ const  promos = [
   },
 ]
 
+
+const products = [
+  {
+    image: Apple,
+    brand: 'Fresh Farms',
+    name: 'Red Apple',
+    rating: 4.5,
+    weight: '1 kg',
+    price: 3.99,
+    oldPrice: 4.99,
+    discount: 20,
+  },
+  {
+    image: Banana,
+    brand: 'Tropical Fruits',
+    name: 'Ripe Bananas',
+    rating: 4.2,
+    weight: '1.5 kg',
+    price: 2.49,
+    oldPrice: 3.49,
+    discount: 29,
+  },
+  {
+    image: Peach,
+    brand: 'Orchard Fresh',
+    name: 'Juicy Peaches',
+    rating: 4.7,
+    weight: '1 kg',
+    price: 4.29,
+    oldPrice: 5.29,
+    discount: 19,
+  },
+  {
+    image: Salad,
+    brand: 'Green Valley',
+    name: 'Fresh Salad Mix',
+    rating: 4.3,
+    weight: '500 g',
+    price: 2.99,
+    oldPrice: 3.99,
+    discount: 25,
+  },
+  {
+    image: Cake,
+    brand: 'Sweet Treats',
+    name: 'Chocolate Cake',
+    rating: 4.8,
+    weight: '750 g',
+    price: 15.99,
+    oldPrice: 19.99,
+    discount: 20,
+  },
+  {
+    image: Pizza,
+    brand: 'Italiano',
+    name: 'Margherita Pizza',
+    rating: 4.6,
+    weight: '300 g',
+    price: 8.49,
+    oldPrice: 10.49,
+    discount: 19,
+  },
+  {
+    image: Burger,
+    brand: 'Fast Bites',
+    name: 'Beef Burger',
+    rating: 4.4,
+    weight: '250 g',
+    price: 5.99,
+    oldPrice: 7.49,
+    discount: 20,
+  },
+  {
+    image: Onion,
+    brand: 'Veggie World',
+    name: 'Fresh Onions',
+    rating: 4.1,
+    weight: '1 kg',
+    price: 1.99,
+    oldPrice: 2.49,
+    discount: 20,
+  },
+]
 </script>
 
 <template>
   <!-- <h1>Hello This is my first vue project</h1> -->
-   <!-- Category Section -->
+  <!-- Categories row: title on the left, UL on the right -->
+  <div class="categories-row" style="margin:15px; font-family: 'Courier New', Courier, monospace;">
+    <div class="Category" style="margin: 15px; margin-left: 10%; font-size: larger;">
+      <h2>Featured Categories</h2>
+    </div>
+    <ul class="category-list" style=" margin-right: 10%;">
+      <li style="font-weight: bold;">All</li>
+      <li>Fruits</li>
+      <li>Vegetables</li>
+      <li>Dairy</li>
+      <li>Grains</li>
+      <li>Meat</li>
+      <li>Seafood</li>
+    </ul>
+  </div>
+  <!-- Category Section -->
   <div>
     <div class="app">
       <div class="card-grid">
-        <FoodCard
-          v-for="(food,index) in foods"
-          :key="index"
-          :image="food.image"
-          :title="food.title"
+        <FoodCard v-for="(food, index) in foods" :key="index" :image="food.image" :title="food.title"
           :items="food.items" />
       </div>
     </div>
   </div>
 
   <!-- <Adsvertise /> -->
-    <div class="app">
+  <div class="app">
     <div class="promo-section">
-      <PromoCard
-        v-for="(promo, index) in promos"
-        :key="index"
-        :title="promo.title"
-        :image="promo.image"
-        :bgColor="promo.bgColor"
-        :btnColor="promo.btnColor"
-      />
+      <PromoCard v-for="(promo, index) in promos" :key="index" :title="promo.title" :image="promo.image"
+        :bgColor="promo.bgColor" :btnColor="promo.btnColor" />
     </div>
   </div>
+
+  <div class="popular-row" style="font-family: 'Courier New', Courier, monospace;display: flex; align-items: center; justify-content: space-between; margin: 15px;">
+    <div class="Category" style="margin-left: 10%; font-size: large; ">
+      <h2>Popular Products</h2>
+    </div>
+    <ul class="category-list" style=" margin-right: 10%;">
+      <li style="font-weight: bold;">All</li>
+      <li>Fruits</li>
+      <li>Vegetables</li>
+      <li>Dairy</li>
+      <li>Grains</li>
+      <li>Meat</li>
+      <li>Seafood</li>
+    </ul>
+  </div>
+
+  <div class="app">
+    <div class="product-grid">
+      <ProductCard v-for="(product, index) in products" :key="index" :image="product.image" :brand="product.brand"
+        :name="product.name" :rating="product.rating" :weight="product.weight" :price="product.price"
+        :oldPrice="product.oldPrice" :discount="product.discount" />
+    </div>
+
+  </div>
+
+
+
+
 </template>
 
 <style scoped>
+.Category:hover {
+  margin-left: 10%;
+  font-size: large;
+  color: #3bb77e;
+  font-weight: bold;
+}
 
-.app{
-  min-height:20vh;
+.categories-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.categories-row .Category h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.category-list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: 12px;
+  margin: 0;
+  align-items: center;
+}
+
+.category-list li {
+  cursor: pointer;
+}
+
+.category-list li:hover {
+  font-weight: bold;
+  color: #3bb77e;
+  transform: scale(1.1);
+}
+
+.app {
+  min-height: 20vh;
   display: flex;
   /* border: 1px solid #333; */
   border-radius: 10px;
@@ -118,20 +272,27 @@ const  promos = [
   margin-top: 20px;
 
 }
-.card-grid{
+
+.card-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
 }
-.promo-section{
+
+.promo-section {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   justify-content: center;
   margin-bottom: 15px;
 }
-
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 5%;
+}
 
 </style>
-
