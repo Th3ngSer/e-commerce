@@ -228,6 +228,7 @@ const products = [
   font-size: large;
   color: #3bb77e;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .categories-row {
@@ -238,6 +239,7 @@ const products = [
 }
 
 .categories-row .Category h2 {
+  cursor: pointer;
   margin: 0;
   font-size: 1.25rem;
 }
