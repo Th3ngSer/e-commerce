@@ -2,7 +2,7 @@
   <div class="promo-card" :style="{ backgroundColor: bgColor }">
     <div class="promo-content">
       <h2 class="promo-title">{{ title }}</h2>
-      <button class="promo-btn" :style="{ backgroundColor: btnColor }">
+      <button class="promo-btn" :style="{ backgroundColor: btnColor }" @click="shopNow">
         {{ btnText }} →
       </button>
     </div>
@@ -11,22 +11,26 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
-  title: String,
-  btnText: {
-    type: String,
-    default: 'Shop Now'
-  },
-  image: String,
-  bgColor: {
-    type: String,
-    default: '#fff'
-  },
-  btnColor: {
-    type: String,
-    default: '#28a745' // green
-  }
-})
+type Props = {
+  title: string
+  btnText?: string
+  image?: string
+  bgColor?: string
+  btnColor?: string
+}
+
+const props = defineProps<Props>()
+
+const title = props.title
+const btnText = props.btnText ?? 'Shop Now'
+const image = props.image
+const bgColor = props.bgColor ?? '#fff'
+const btnColor = props.btnColor ?? '#28a745'
+
+function shopNow() {
+  // simple alert using the promotion title
+  alert(`Let's shop: ${props.title}`)
+}
 </script>
 
 <style scoped>
