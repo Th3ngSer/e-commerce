@@ -1,6 +1,4 @@
 <template>
-  <!-- <h1>Hello This is my first vue project</h1> -->
-
   <div class="Head ">
     <div class="Headbar ">
       <div class="logo">
@@ -29,8 +27,8 @@
         <li><a href="#">Deals</a></li>
         <li><a href="#">Contact</a></li>
       </ul>
-    </div> </div>
-
+    </div>
+  </div>
   <!-- Categories row: title on the left, UL on the right -->
   <div class="categories-row"
     style="margin:15px; font-family: 'Courier New', Courier, monospace;">
@@ -65,7 +63,7 @@
     </div>
   </div>
 
-  <!-- <div class="popular-row"
+  <div class="popular-row"
    style="font-family: 'Courier New', Courier, monospace;display: flex; align-items: center; justify-content: space-between; margin: 15px;">
     <div class="Category" style="margin-left: 10%; font-size: large; ">
       <h2>Popular Products</h2>
@@ -79,16 +77,16 @@
       <li>Meat</li>
       <li>Seafood</li>
     </ul>
-  </div> -->
+  </div>
 
-  <!-- <div class="app">
+  <div class="app">
     <div class="product-grid">
       <ProductCard v-for="(product, index) in products" :key="index" :image="product.image" :brand="product.brand"
         :name="product.name" :rating="product.rating" :weight="product.weight" :price="product.price"
         :oldPrice="product.oldPrice" :discount="product.discount" />
     </div>
 
-  </div> -->
+  </div>
 
 </template>
 
@@ -105,7 +103,7 @@ import Vegetable from '../assets/img/vegetable.png'
 import Milk from '../assets/img/milk.png'
 import Onion from '../assets/img/onion.png'
 import PromoCard from '../component/PromoCard.vue'
-// import ProductCard from '../component/ProductCard.vue'
+import ProductCard from '../component/ProductCard.vue'
 
 const foods = [
   {
@@ -168,88 +166,88 @@ const promos = [
 ]
 
 
-// const products = [
-//   {
-//     image: Apple,
-//     brand: 'Fresh Farms',
-//     name: 'Red Apple',
-//     rating: 4.5,
-//     weight: '1 kg',
-//     price: 3.99,
-//     oldPrice: 4.99,
-//     discount: 20,
-//   },
-//   {
-//     image: Banana,
-//     brand: 'Tropical Fruits',
-//     name: 'Ripe Bananas',
-//     rating: 4.2,
-//     weight: '1.5 kg',
-//     price: 2.49,
-//     oldPrice: 3.49,
-//     discount: 29,
-//   },
-//   {
-//     image: Peach,
-//     brand: 'Orchard Fresh',
-//     name: 'Juicy Peaches',
-//     rating: 4.7,
-//     weight: '1 kg',
-//     price: 4.29,
-//     oldPrice: 5.29,
-//     discount: 19,
-//   },
-//   {
-//     image: Salad,
-//     brand: 'Green Valley',
-//     name: 'Fresh Salad Mix',
-//     rating: 4.3,
-//     weight: '500 g',
-//     price: 2.99,
-//     oldPrice: 3.99,
-//     discount: 25,
-//   },
-//   {
-//     image: Cake,
-//     brand: 'Sweet Treats',
-//     name: 'Chocolate Cake',
-//     rating: 4.8,
-//     weight: '750 g',
-//     price: 15.99,
-//     oldPrice: 19.99,
-//     discount: 20,
-//   },
-//   {
-//     image: Pizza,
-//     brand: 'Italiano',
-//     name: 'Margherita Pizza',
-//     rating: 4.6,
-//     weight: '300 g',
-//     price: 8.49,
-//     oldPrice: 10.49,
-//     discount: 19,
-//   },
-//   {
-//     image: Burger,
-//     brand: 'Fast Bites',
-//     name: 'Beef Burger',
-//     rating: 4.4,
-//     weight: '250 g',
-//     price: 5.99,
-//     oldPrice: 7.49,
-//     discount: 20,
-//   },
-//   {
-//     image: Onion,
-//     brand: 'Veggie World',
-//     name: 'Fresh Onions',
-//     rating: 4.1,
-//     weight: '1 kg',
-//     price: 1.99,
-//     oldPrice: 2.49,
-//     discount: 20,
-//   },
-// ]
+const products = [
+  {
+    image: Apple,
+    brand: 'Fresh Farms',
+    name: 'Red Apple',
+    rating: 4.5,
+    weight: '1 kg',
+    price: 3.99,
+    oldPrice: 4.99,
+    discount: 20,
+  },
+  {
+    image: Banana,
+    brand: 'Tropical Fruits',
+    name: 'Ripe Bananas',
+    rating: 4.2,
+    weight: '1.5 kg',
+    price: 2.49,
+    oldPrice: 3.49,
+    discount: 29,
+  },
+  {
+    image: Peach,
+    brand: 'Orchard Fresh',
+    name: 'Juicy Peaches',
+    rating: 4.7,
+    weight: '1 kg',
+    price: 4.29,
+    oldPrice: 5.29,
+    discount: 19,
+  },
+  {
+    image: Salad,
+    brand: 'Green Valley',
+    name: 'Fresh Salad Mix',
+    rating: 4.3,
+    weight: '500 g',
+    price: 2.99,
+    oldPrice: 3.99,
+    discount: 25,
+  },
+  {
+    image: Cake,
+    brand: 'Sweet Treats',
+    name: 'Chocolate Cake',
+    rating: 4.8,
+    weight: '750 g',
+    price: 15.99,
+    oldPrice: 19.99,
+    discount: 20,
+  },
+  {
+    image: Pizza,
+    brand: 'Italiano',
+    name: 'Margherita Pizza',
+    rating: 4.6,
+    weight: '300 g',
+    price: 8.49,
+    oldPrice: 10.49,
+    discount: 19,
+  },
+  {
+    image: Burger,
+    brand: 'Fast Bites',
+    name: 'Beef Burger',
+    rating: 4.4,
+    weight: '250 g',
+    price: 5.99,
+    oldPrice: 7.49,
+    discount: 20,
+  },
+  {
+    image: Onion,
+    brand: 'Veggie World',
+    name: 'Fresh Onions',
+    rating: 4.1,
+    weight: '1 kg',
+    price: 1.99,
+    oldPrice: 2.49,
+    discount: 20,
+  },
+]
 
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
@@ -334,12 +332,33 @@ onMounted(() => {
   background-color: #3bb77e;
   padding: 3px 0;
   border-radius: 10px;
+  max-width: 70%;
+  margin:auto;
 }
 .nav-links {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 30px;
+  max-width: 60%;
+  margin:auto;
+  padding: 5px;
+
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+.nav-links li a:hover {
+  color: #d4f5e1;
+  outline: olive;
+  cursor: pointer;
+  text-decoration: underline;
+
 }
 
 
