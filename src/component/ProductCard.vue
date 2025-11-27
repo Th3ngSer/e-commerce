@@ -7,8 +7,8 @@
       <p class="name">{{ name }}</p>
       <div class="rating">
         <span v-for="i in 5" :key="i" class="star" :class="{ filled: i <= Math.floor(rating) }">★</span>
-        Rating: {{ rating }}
-        <span class="rating-value">{{ rating.toFixed(1) }}</span>
+        {{ rating }}
+        <!-- <span class="rating-value">{{ rating.toFixed(1) }}</span> -->
       </div>
       <p class="weight">Weight: {{ weight }}</p>
 
@@ -46,12 +46,14 @@ const quantity = ref<number>(1)
 
 <style scoped>
 .product-card {
-  width: 260px;
-  background: white;
+  width: 240px;
+  background: lch(93.43% 5.82 95.31);
   border: 1px solid #86a67c;
   border-radius: 12px;
+  display: grid;
   padding: 12px;
   margin-bottom: 12px;
+  cursor: pointer;
   position: relative;
   font-family: 'Courier New', Courier, monospace;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -65,8 +67,8 @@ const quantity = ref<number>(1)
 
 .discount-badge {
   position: absolute;
-  top: 16px;
-  left: 10px;
+  top: 10px;
+  left: 5px;
   background: #3bb77e;
   color: white;
   padding: 4px 12px;
@@ -77,7 +79,7 @@ const quantity = ref<number>(1)
 }
 
 .product-image {
-  width: 90%;
+  width: 80%;
   height: 180px;
   object-fit: contain;
   margin-bottom: 12px;

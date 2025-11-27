@@ -87,7 +87,6 @@
     </div>
 
   </div>
-
 </template>
 
 <script setup lang="ts">
@@ -254,6 +253,7 @@ import axios from 'axios'
 
 const categories = ref([]);
 const promotions = ref([]);
+const groups = ref([]);
 
 async function fetchCategories() {
   const res = await axios.get("http://localhost:3000/api/categories");
@@ -265,11 +265,16 @@ async function fetchPromotions() {
   promotions.value = res.data;
 }
 
+async function fetchGroups() {
+  const res = await axios.get("http://localhost:3000/api/groups");
+  groups.value = res.data;
+}
 
 // Life-cycle
 onMounted(() => {
   fetchCategories()
   fetchPromotions()
+  fetchGroups()
 })
 </script>
 
@@ -330,18 +335,19 @@ onMounted(() => {
 }
 .Navi {
   background-color: #3bb77e;
-  padding: 3px 0;
+  padding: 5px;
   border-radius: 10px;
-  max-width: 70%;
+  /* max-width: 70%; */
   margin:auto;
 }
 .nav-links {
   list-style: none;
   display: flex;
+  font-size: large;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
-  max-width: 60%;
+  gap: 30%;
+  width: 60%;
   margin:auto;
   padding: 5px;
 
@@ -429,10 +435,10 @@ onMounted(() => {
   margin-bottom: 15px;
 }
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  justify-content: center;
+  justify-items: center;
   margin-bottom: 5%;
 }
 
