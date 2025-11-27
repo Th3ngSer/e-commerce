@@ -5,13 +5,13 @@
         <h2>ShopMate</h2>
       </div>
       <div class="search-bar">
-         <select class="selected">
-           <option>All Categories</option>
-           <option>Vegetable</option>
-           <option>Milk</option>
-           <option>Food</option>
-          </select>
-          <input class="search" type="text" placeholder="Search for products..." />
+        <select class="selected">
+          <option>All Categories</option>
+          <option>Vegetable</option>
+          <option>Milk</option>
+          <option>Food</option>
+        </select>
+        <input class="search" type="text" placeholder="Search for products..." />
       </div>
       <div class="user-actions">
         <button class="profile-button">Profile</button>
@@ -30,8 +30,7 @@
     </div>
   </div>
   <!-- Categories row: title on the left, UL on the right -->
-  <div class="categories-row"
-    style="margin:15px; font-family: 'Courier New', Courier, monospace;">
+  <div class="categories-row" style="margin:15px; font-family: 'Courier New', Courier, monospace;">
     <div class="Category" style="margin: 15px; margin-left: 10%; font-size: larger;">
       <h2>Featured Categories</h2>
     </div>
@@ -59,12 +58,12 @@
   <div class="app">
     <div class="promo-section">
       <PromoCard v-for="(promo, index) in promos" :key="index" :title="promo.title" :image="promo.image"
-        :bgColor="promo.bgColor" :btnColor="promo.btnColor"/>
+        :bgColor="promo.bgColor" :btnColor="promo.btnColor" />
     </div>
   </div>
 
   <div class="popular-row"
-   style="font-family: 'Courier New', Courier, monospace;display: flex; align-items: center; justify-content: space-between; margin: 15px;">
+    style="font-family: 'Courier New', Courier, monospace;display: flex; align-items: center; justify-content: space-between; margin: 15px;">
     <div class="Category" style="margin-left: 10%; font-size: large; ">
       <h2>Popular Products</h2>
     </div>
@@ -286,6 +285,7 @@ onMounted(() => {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
 }
+
 .Headbar {
   display: flex;
   align-items: center;
@@ -294,30 +294,35 @@ onMounted(() => {
   background-color: #ffffff;
 
 }
+
 .logo h2 {
   margin: 0;
   color: #3bb77e;
   font-family: 'Courier New', Courier, monospace;
 }
-.search-bar{
+
+.search-bar {
   padding: 8px 12px;
   border: 1px solid #57c290;
   border-radius: 4px;
   width: 400px;
 }
-.search, .selected{
+
+.search,
+.selected {
   border: none;
   outline: none;
   font-size: 14px;
   margin: 5px;
 }
 
-.user-actions{
+.user-actions {
   display: flex;
   gap: 10px;
   justify-content: center;
 }
-.user-actions button{
+
+.user-actions button {
   margin-left: 10px;
   padding: 8px 12px;
   border: none;
@@ -330,16 +335,19 @@ onMounted(() => {
   font-weight: bold;
 
 }
+
 .user-actions button:hover {
   background-color: #339e6a;
 }
+
 .Navi {
   background-color: #3bb77e;
   padding: 5px;
   border-radius: 10px;
   /* max-width: 70%; */
-  margin:auto;
+  margin: auto;
 }
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -348,10 +356,11 @@ onMounted(() => {
   align-items: center;
   gap: 30%;
   width: 60%;
-  margin:auto;
+  margin: auto;
   padding: 5px;
 
 }
+
 .nav-links li a {
   color: white;
   text-decoration: none;
@@ -359,6 +368,7 @@ onMounted(() => {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
+
 .nav-links li a:hover {
   color: #d4f5e1;
   outline: olive;
@@ -434,6 +444,7 @@ onMounted(() => {
   justify-content: center;
   margin-bottom: 15px;
 }
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -441,5 +452,4 @@ onMounted(() => {
   justify-items: center;
   margin-bottom: 5%;
 }
-
 </style>
