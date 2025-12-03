@@ -67,16 +67,23 @@ export default {
 
 <style scoped>
 .header-container {
-  width: 80%;
-  padding: 12px 20px;
+  /* width: 80%;*/
+  max-width: 75%;
+  height: 60px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 16px;
   background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  justify-content: space-between;
   display: flex;
   justify-content: center;
-  gap: 80px;
+  gap: 70px;
   align-items: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
   font-family: Arial, sans-serif;
-  margin-left: 100px;
 }
 
 /* Left Section */
@@ -90,9 +97,9 @@ export default {
 .browse-btn {
   background: #2ecc71;
   color: white;
-  padding: 10px 18px;
+  padding: 10px 16px;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   border: none;
@@ -101,7 +108,7 @@ export default {
 }
 
 .browse-btn .icon {
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .browse-btn:hover {
@@ -117,9 +124,10 @@ export default {
 
 .nav-links a,
 .dropdown button {
-  font-size: 15px;
+  font-size: 10px;
   text-decoration: none;
   color: #333;
+  gap: 4px;
   background-color: transparent;
   font-weight: 500;
   background-color: none;
@@ -130,10 +138,11 @@ export default {
 .nav-links a:hover,
 .dropdown button:hover {
   color: #27ae60;
+  font-weight: bold;
 }
 
 /* Dropdown menu */
-.dropdown {
+.dropdown{
   position: relative;
 }
 
@@ -142,10 +151,10 @@ export default {
   background: white;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   border-radius: 6px;
-  padding: 10px 0;
+  padding: 8px;
   display: none;
   top: 28px;
-  width: 150px;
+  width: 180px;
   z-index: 50;
 }
 

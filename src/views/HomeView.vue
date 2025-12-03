@@ -1,6 +1,6 @@
 <template>
   <div class="Head ">
-    <div class="Headbar ">
+    <div class="Headbar">
       <div class="logo">
         <h2>ShopMate</h2>
       </div>
@@ -72,6 +72,14 @@
   </div>
 
   <Group />
+
+  <div class="Advertise-cls flex justify-between items-center bg-gray-100 p-4 rounded-lg mx-4 mb-6">
+    <Advertise title="Don't miss with this amazing grocery deals" text="Save up to 20% on selected items"
+      />
+
+  </div>
+
+
 
   <!-- Categories row: title on the left, UL on the right -->
   <div class="categories-row" style="margin:15px; font-family: 'Courier New', Courier, monospace;">
@@ -148,6 +156,7 @@ import Onion from '../assets/img/onion.png'
 import PromoCard from '../component/PromoCard.vue'
 import ProductCard from '../component/ProductCard.vue'
 import Group from '../component/Group.vue'
+import Advertise from '../component/Advertise.vue'
 
 
 const foods = [
@@ -294,6 +303,7 @@ const products = [
   },
 ]
 
+
 import { ref, onMounted } from 'vue'
 import axios from 'axios'
 
@@ -349,9 +359,9 @@ onMounted(() => {
 }
 
 .search-bar{
-  padding: 8px 12px;
+  padding: 6px 10px;
   border: 1px solid #57c290;
-  border-radius: 4px;
+  border-radius: 8px;
   width: 40%;
   display: flex;
 }
