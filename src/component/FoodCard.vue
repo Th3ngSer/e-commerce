@@ -1,5 +1,5 @@
 <template>
-  <div class="food-card">
+  <div class="food-card" @click="navigateToCategory">
     <img :src="image" :alt="title" class="food-image" />
     <h3 class="food-title">{{ title }}</h3>
     <p class="food-items">{{ items }} items</p>
@@ -7,7 +7,13 @@
 </template>
 
 <script setup lang="ts">
-defineProps({
+import { useRouter } from 'vue-router'
+
+const props = defineProps({
+  id: {
+    type: [String, Number],
+    required: true,
+  },
   image: {
     type: String,
     required: true,
@@ -20,13 +26,32 @@ defineProps({
     type: Number,
     default: 0,
   },
+  category: {
+    type: String,
+    default: 'food',
+  },
 })
+
+const router = useRouter()
+
+function navigateToCategory() {
+  // Navigate to category view with the food id
+  router.push({
+    name: 'category',
+    query: {
+      id: props.id,
+      category: props.category,
+      name: props.title
+    }
+  })
+}
 </script>
 
 <style scoped>
 .food-card {
   width: 120px;
-  background-color: #f1f8e9; /* light green */
+  background-color: #f1f8e9;
+  /* light green */
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;

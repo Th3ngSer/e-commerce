@@ -68,7 +68,7 @@ export default {
 <style scoped>
 .header-container {
   /* width: 80%;*/
-  max-width: 75%;
+  max-width: 80%;
   height: 60px;
   display: flex;
   margin-left: auto;
