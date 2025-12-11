@@ -1,11 +1,10 @@
 <template>
-  <Header/>
-  <CategoryHead v-if="selectedFood" :title="categoryTitle" :navigation="breadcrumb" :color="categoryColor" />
+  <Header />
+<CategoryHead v-if="selectedFood" :title="categoryTitle" :navigation="breadcrumb" :color="categoryColor" />
 </template>
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import Group from '@/component/Group.vue';
 import CategoryHead from '@/component/CategoryHead.vue';
 import Header from '@/component/Header.vue';
 

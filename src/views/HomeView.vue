@@ -127,9 +127,9 @@
 
   <div class="app">
     <div class="product-grid">
-      <ProductCard v-for="(product, index) in products" :key="index" :image="product.image" :brand="product.brand"
-        :name="product.name" :rating="product.rating" :weight="product.weight" :price="product.price"
-        :oldPrice="product.oldPrice" :discount="product.discount" />
+      <ProductCard v-for="product in products" :key="product.id" :id="product.id" :image="product.image"
+        :brand="product.brand" :name="product.name" :rating="product.rating" :weight="product.weight"
+        :price="product.price" :oldPrice="product.oldPrice" :discount="product.discount" />
     </div>
 
   </div>
@@ -230,6 +230,7 @@ const promos = [
 
 const products = [
   {
+    id: 1,
     image: Apple,
     brand: 'Fresh Farms',
     name: 'Red Apple',
@@ -240,6 +241,7 @@ const products = [
     discount: 20,
   },
   {
+    id: 2,
     image: Banana,
     brand: 'Tropical Fruits',
     name: 'Ripe Bananas',
@@ -250,6 +252,7 @@ const products = [
     discount: 29,
   },
   {
+    id: 3,
     image: Peach,
     brand: 'Orchard Fresh',
     name: 'Juicy Peaches',
@@ -260,6 +263,7 @@ const products = [
     discount: 19,
   },
   {
+    id: 4,
     image: Salad,
     brand: 'Green Valley',
     name: 'Fresh Salad Mix',
@@ -270,6 +274,7 @@ const products = [
     discount: 25,
   },
   {
+    id: 5,
     image: Cake,
     brand: 'Sweet Treats',
     name: 'Chocolate Cake',
@@ -280,6 +285,7 @@ const products = [
     discount: 20,
   },
   {
+    id: 6,
     image: Pizza,
     brand: 'Italiano',
     name: 'Margherita Pizza',
@@ -290,6 +296,7 @@ const products = [
     discount: 19,
   },
   {
+    id: 7,
     image: Burger,
     brand: 'Fast Bites',
     name: 'Beef Burger',
@@ -300,6 +307,7 @@ const products = [
     discount: 20,
   },
   {
+    id: 8,
     image: Onion,
     brand: 'Veggie World',
     name: 'Fresh Onions',
@@ -344,7 +352,6 @@ onMounted(() => {
 
 
 <style scoped>
-
 .Head {
   width: 100%;
   height: auto;

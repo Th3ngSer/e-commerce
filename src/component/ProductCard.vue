@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card">
+  <div class="product-card" @click="navigateToProduct">
     <p class="discount-badge">-{{ discount }}%</p>
     <img :src="image" alt="image" class="product-image" />
     <div class="product-info">
@@ -27,8 +27,10 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 const props = defineProps<{
+  id: number | string
   image: string
   brand: string
   name: string
@@ -39,9 +41,17 @@ const props = defineProps<{
   discount: number
 }>()
 
-const { image, brand, name, rating, weight, price, oldPrice, discount } = props
+const { id, image, brand, name, rating, weight, price, oldPrice, discount } = props
 
 const quantity = ref<number>(1)
+const router = useRouter()
+
+function navigateToProduct() {
+  router.push({
+    name: 'product',
+    params: { id: props.id }
+  })
+}
 </script>
 
 <style scoped>

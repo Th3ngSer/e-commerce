@@ -69,11 +69,11 @@
 
 </template>
 <script setup lang="ts">
+
 import Group from '@/component/Group.vue';
 
 </script>
 <style scoped>
-
 .Head {
   width: 100%;
   height: auto;
