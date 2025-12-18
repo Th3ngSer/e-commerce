@@ -1,12 +1,12 @@
 <template>
   <Header />
-<CategoryHead v-if="selectedFood" :title="categoryTitle" :navigation="breadcrumb" :color="categoryColor" />
+  <CategoryHead v-if="selectedFood" :title="categoryTitle" :navigation="breadcrumb" :color="categoryColor" />
 </template>
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import CategoryHead from '@/component/CategoryHead.vue';
-import Header from '@/component/Header.vue';
+import Header from '@/component/AppHeader.vue';
 
 const route = useRoute()
 
@@ -66,7 +66,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
 .Head {
   width: 100%;
   height: auto;
