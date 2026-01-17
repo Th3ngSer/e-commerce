@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;e
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class RolePermissionSeeder extends Seeder
@@ -20,9 +20,13 @@ class RolePermissionSeeder extends Seeder
             'products.create',
             'products.update',
             'products.delete',
-            'category.create',
-            'category.update',
-            'category.delete',
+            'categories.create',
+            'categories.update',
+            'categories.delete',
+            'students.view',
+            'students.create',
+            'students.update',
+            'students.delete',
         ];
 
         $permissionIds = [];
@@ -39,12 +43,20 @@ class RolePermissionSeeder extends Seeder
         $this->attachPermissionToRole($permissionIds['products.create'], $managerRoleId);
         $this->attachPermissionToRole($permissionIds['products.update'], $managerRoleId);
         $this->attachPermissionToRole($permissionIds['products.delete'], $managerRoleId);
-        $this->attachPermissionToRole($permissionIds['category.create'], $managerRoleId);
-        $this->attachPermissionToRole($permissionIds['category.update'], $managerRoleId);
-        $this->attachPermissionToRole($permissionIds['category.delete'], $managerRoleId);
+        $this->attachPermissionToRole($permissionIds['categories.create'], $managerRoleId);
+        $this->attachPermissionToRole($permissionIds['categories.update'], $managerRoleId);
+        $this->attachPermissionToRole($permissionIds['categories.delete'], $managerRoleId);
+
+        // manager: students (no delete)
+        $this->attachPermissionToRole($permissionIds['students.view'], $managerRoleId);
+        $this->attachPermissionToRole($permissionIds['students.create'], $managerRoleId);
+        $this->attachPermissionToRole($permissionIds['students.update'], $managerRoleId);
 
         // staff: create only (example)
         $this->attachPermissionToRole($permissionIds['products.create'], $staffRoleId);
+
+        // staff: view students only
+        $this->attachPermissionToRole($permissionIds['students.view'], $staffRoleId);
 
         // Sample users (repeatable)
         $adminUserId = $this->getOrCreateUserId('Admin', 'admin@example.com', 'password');

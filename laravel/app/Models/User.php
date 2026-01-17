@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Role;
+use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -59,13 +60,20 @@ class User extends Authenticatable
         return $this->roles()->where('name', $roleName)->exists();
     }
 
-    public function hasPermission($permissionName)
+    // public function hasPermission($permissionName)
+    // {
+    //     foreach ($this->roles as $role) {
+    //         if ($role->permissions()->where('name', $permissionName)->exists()) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    public function hasPermission(string $permission): bool
     {
-        foreach ($this->roles as $role) {
-            if ($role->permissions()->where('name', $permissionName)->exists()) {
-                return true;
-            }
-        }
-        return false;
+        return $this->roles()
+            ->whereHas('permissions', fn($q) => $q->where('name', $permission))
+            ->exists();
     }
 }
